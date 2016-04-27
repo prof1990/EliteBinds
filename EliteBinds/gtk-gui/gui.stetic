@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<stetic-interface>
+  <configuration>
+    <images-root-path>..</images-root-path>
+  </configuration>
+  <import>
+    <widget-library name="glade-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
+    <widget-library name="../bin/Debug/EliteBinds.exe" internal="true" />
+  </import>
+  <widget class="Gtk.Window" id="MainWindow" design-size="611 589">
+    <action-group name="Default">
+      <action id="FileAction">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes">File</property>
+        <property name="ShortLabel" translatable="yes">File</property>
+      </action>
+      <action id="openAction">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes" />
+        <property name="StockId">gtk-open</property>
+        <signal name="Activated" handler="OnButtonOpenClicked" />
+      </action>
+      <action id="saveAction">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes" />
+        <property name="StockId">gtk-save</property>
+        <signal name="Activated" handler="OnSaveClicked" />
+      </action>
+      <action id="ApplyAction">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes">Apply</property>
+        <property name="ShortLabel" translatable="yes">Apply</property>
+        <property name="StockId">gtk-ok</property>
+      </action>
+    </action-group>
+    <property name="MemberName" />
+    <property name="Title" translatable="yes">MainWindow</property>
+    <property name="WindowPosition">CenterOnParent</property>
+    <signal name="DeleteEvent" handler="OnDeleteEvent" />
+    <child>
+      <widget class="Gtk.VBox" id="vbox1">
+        <property name="MemberName" />
+        <property name="Spacing">6</property>
+        <child>
+          <widget class="Gtk.Toolbar" id="toolbar1">
+            <property name="MemberName" />
+            <property name="HeightRequest">30</property>
+            <property name="Events">ButtonReleaseMask</property>
+            <property name="ShowArrow">False</property>
+            <property name="ButtonStyle">Text</property>
+            <property name="IconSize">Menu</property>
+            <node name="__gtksharp_166_Stetic_Editor_ActionToolbar" type="Toolbar">
+              <node type="Toolitem" action="openAction" />
+              <node type="Toolitem" action="saveAction" />
+              <node type="Toolitem" action="ApplyAction" />
+            </node>
+          </widget>
+          <packing>
+            <property name="Position">0</property>
+            <property name="AutoSize">True</property>
+            <property name="Expand">False</property>
+            <property name="Fill">False</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.Notebook" id="notebook4">
+            <property name="MemberName" />
+            <property name="CanFocus">True</property>
+            <property name="CurrentPage">0</property>
+            <child>
+              <placeholder />
+            </child>
+            <child>
+              <widget class="Gtk.Label" id="FlightTab">
+                <property name="MemberName" />
+                <property name="LabelProp" translatable="yes">Flight Controls</property>
+              </widget>
+              <packing>
+                <property name="type">tab</property>
+              </packing>
+            </child>
+            <child>
+              <placeholder />
+            </child>
+            <child>
+              <widget class="Gtk.Label" id="SRVTab">
+                <property name="MemberName" />
+                <property name="LabelProp" translatable="yes">SRV Controls</property>
+              </widget>
+              <packing>
+                <property name="type">tab</property>
+              </packing>
+            </child>
+          </widget>
+          <packing>
+            <property name="Position">1</property>
+            <property name="AutoSize">True</property>
+          </packing>
+        </child>
+      </widget>
+    </child>
+  </widget>
+</stetic-interface>
