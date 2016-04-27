@@ -24,13 +24,14 @@
         <property name="Type">Action</property>
         <property name="Label" translatable="yes" />
         <property name="StockId">gtk-save</property>
-        <signal name="Activated" handler="OnSaveClicked" />
+        <signal name="Activated" handler="OnButtonSaveClicked" />
       </action>
       <action id="ApplyAction">
         <property name="Type">Action</property>
         <property name="Label" translatable="yes">Apply</property>
         <property name="ShortLabel" translatable="yes">Apply</property>
         <property name="StockId">gtk-ok</property>
+        <signal name="Activated" handler="OnButtonApplyClicked" />
       </action>
     </action-group>
     <property name="MemberName" />

@@ -11,7 +11,7 @@ public partial class MainWindow
 	
 	private global::Gtk.Action saveAction;
 	
-	private global::Gtk.Action okAction;
+	private global::Gtk.Action ApplyAction;
 	
 	private global::Gtk.VBox vbox1;
 	
@@ -36,8 +36,9 @@ public partial class MainWindow
 		w1.Add (this.openAction, null);
 		this.saveAction = new global::Gtk.Action ("saveAction", null, null, "gtk-save");
 		w1.Add (this.saveAction, null);
-		this.okAction = new global::Gtk.Action ("okAction", null, null, "gtk-ok");
-		w1.Add (this.okAction, null);
+		this.ApplyAction = new global::Gtk.Action ("ApplyAction", global::Mono.Unix.Catalog.GetString ("Apply"), null, "gtk-ok");
+		this.ApplyAction.ShortLabel = global::Mono.Unix.Catalog.GetString ("Apply");
+		w1.Add (this.ApplyAction, null);
 		this.UIManager.InsertActionGroup (w1, 0);
 		this.AddAccelGroup (this.UIManager.AccelGroup);
 		this.Name = "MainWindow";
@@ -49,8 +50,8 @@ public partial class MainWindow
 		this.vbox1.Spacing = 6;
 		// Container child vbox1.Gtk.Box+BoxChild
 		this.UIManager.AddUiFromString ("<ui><toolbar name=\'toolbar1\'><toolitem name=\'openAction\' action=\'openAction\'/><to" +
-		"olitem name=\'saveAction\' action=\'saveAction\'/><toolitem name=\'okAction\' action=\'" +
-		"okAction\'/></toolbar></ui>");
+		"olitem name=\'saveAction\' action=\'saveAction\'/><toolitem name=\'ApplyAction\' actio" +
+		"n=\'ApplyAction\'/></toolbar></ui>");
 		this.toolbar1 = ((global::Gtk.Toolbar)(this.UIManager.GetWidget ("/toolbar1")));
 		this.toolbar1.HeightRequest = 30;
 		this.toolbar1.Events = ((global::Gdk.EventMask)(512));
@@ -98,6 +99,7 @@ public partial class MainWindow
 		this.Show ();
 		this.DeleteEvent += new global::Gtk.DeleteEventHandler (this.OnDeleteEvent);
 		this.openAction.Activated += new global::System.EventHandler (this.OnButtonOpenClicked);
-		this.saveAction.Activated += new global::System.EventHandler (this.OnSaveClicked);
+		this.saveAction.Activated += new global::System.EventHandler (this.OnButtonSaveClicked);
+		this.ApplyAction.Activated += new global::System.EventHandler (this.OnButtonApplyClicked);
 	}
 }
