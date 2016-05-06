@@ -43,10 +43,15 @@ public partial class MainWindow: Gtk.Window
 
 	protected virtual void OnButtonSaveClicked(object sender, EventArgs e){
 		Console.Beep (1000, 10);
-	}
+	}
+
 
 	protected virtual void OnButtonApplyClicked (object sender, EventArgs e)
 	{
 		throw new NotImplementedException ();
+	}
+
+	private void RebuildBindsView()
+	{
 	}
 }
