@@ -20,13 +20,13 @@ namespace EliteBinds
 		{
 			settings = new Dictionary<string,BindEntry> ();
 			currentBinds = dotBindsFile;
-			foreach (var xn in dotBindsFile.Root.Elements()) {
+			foreach (var xn in dotBindsFile.Element("Root").Elements()) {
 				if (!xn.HasElements) {
 					var entry = new BindValueEntry (xn);
 					settings.Add (entry.name, entry);
 				} else {
-					var entry = new BindCollectionEntry ();
-					settings.Add (entry.name, entry);
+					//var entry = new BindCollectionEntry ();
+					//settings.Add (entry.name, entry);
 				}
 			}
 		}
@@ -87,6 +87,7 @@ namespace EliteBinds
 		public object value { get; set; }
 		public Type valueType { get; private set;}
 		public Categorys category;
+		private bool IsInProperty;
 
 		public bool SetValue (object value)
 		{
@@ -107,7 +108,11 @@ namespace EliteBinds
 		public BindValueEntry(XElement elem)
 		{
 			name = elem.Name.LocalName;
-			value = elem.Attribute ("Value").Value;
+			IsInProperty = elem.HasAttributes;
+			if (IsInProperty)
+				value = elem.Attribute("Value").Value;
+			else
+				value = elem.Value;
 			valueType = typeof(string);
 		}
 	}

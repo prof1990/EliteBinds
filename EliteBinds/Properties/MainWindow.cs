@@ -4,17 +4,21 @@ using EliteBinds;
 using System.IO;
 using System.Collections.Generic;
 using System.Xml.Linq;
+using System.Linq;
 using System.Runtime.InteropServices;
 using GLib;
+using System.Reflection;
 
 public partial class MainWindow: Gtk.Window
 {
 	private EliteBindsFile edditableBinds;
 	private List<InputField> inpFields;
+	private Notebook inputFieldContainer;
 
 	public MainWindow () : base (Gtk.WindowType.Toplevel)
 	{
 		Build ();
+		//TODO: bind the tabs to inputfield container so they can be filled
 	}
 
 	protected void OnDeleteEvent (object sender, DeleteEventArgs a)
@@ -65,8 +69,7 @@ public partial class MainWindow: Gtk.Window
 		foreach (var bindKV in edditableBinds.GetAllSettings) 
 		{
 			var field = InputField.GenField (bindKV.Value);
-			this.Add (field);
-			inpFields.Add (field);
+			field.Show();
 		}
 	}
 }
