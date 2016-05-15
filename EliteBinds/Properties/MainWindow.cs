@@ -2,12 +2,15 @@
 using Gtk;
 using EliteBinds;
 using System.IO;
+using System.Collections.Generic;
 using System.Xml.Linq;
 using System.Runtime.InteropServices;
+using GLib;
 
 public partial class MainWindow: Gtk.Window
 {
 	private EliteBindsFile edditableBinds;
+	private List<InputField> inpFields;
 
 	public MainWindow () : base (Gtk.WindowType.Toplevel)
 	{
@@ -39,6 +42,7 @@ public partial class MainWindow: Gtk.Window
 			catch{}
 		}
 		chooserDialog.Destroy ();
+		RebuildBindsView ();
 	}
 
 	protected virtual void OnButtonSaveClicked(object sender, EventArgs e){
@@ -53,5 +57,16 @@ public partial class MainWindow: Gtk.Window
 
 	private void RebuildBindsView()
 	{
+		if (inpFields != null)
+			foreach (InputField f in inpFields) {
+				this.Remove (f);
+			}
+		inpFields = new List<InputField> ();
+		foreach (var bindKV in edditableBinds.GetAllSettings) 
+		{
+			var field = InputField.GenField (bindKV.Value);
+			this.Add (field);
+			inpFields.Add (field);
+		}
 	}
 }

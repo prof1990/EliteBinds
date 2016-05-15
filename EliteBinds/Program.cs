@@ -1,5 +1,7 @@
 ﻿using System;
 using Gtk;
+using GLib;
+using System.IO;
 
 namespace EliteBinds
 {
@@ -12,5 +14,6 @@ namespace EliteBinds
 			win.Show ();
 			Application.Run ();
 		}
+
 	}
 }

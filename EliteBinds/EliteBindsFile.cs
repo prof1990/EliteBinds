@@ -18,6 +18,7 @@ namespace EliteBinds
 		/// <param name="dotBindsFile">the .binds file to be loaded</param>
 		public EliteBindsFile (XDocument dotBindsFile)
 		{
+			settings = new Dictionary<string,BindEntry> ();
 			currentBinds = dotBindsFile;
 			foreach (var xn in dotBindsFile.Root.Elements()) {
 				if (!xn.HasElements) {
