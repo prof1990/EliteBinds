@@ -65,7 +65,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\MainWindow.cs" />
     <Compile Include="EliteBindsFile.cs" />
-    <Compile Include="InputField.cs" />
+    <Compile Include="InputWidget.cs" />
+    <Compile Include="gtk-gui\EliteBinds.InputWidget.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -19,6 +19,10 @@ public partial class MainWindow
 	
 	private global::Gtk.Notebook notebook4;
 	
+	private global::Gtk.ScrolledWindow scrolledwindow1;
+	
+	private global::Gtk.VBox FlightControlsBox;
+	
 	private global::Gtk.Label FlightTab;
 	
 	private global::Gtk.Label SRVTab;
@@ -69,27 +73,40 @@ public partial class MainWindow
 		this.notebook4.CanFocus = true;
 		this.notebook4.Name = "notebook4";
 		this.notebook4.CurrentPage = 0;
+		// Container child notebook4.Gtk.Notebook+NotebookChild
+		this.scrolledwindow1 = new global::Gtk.ScrolledWindow ();
+		this.scrolledwindow1.CanFocus = true;
+		this.scrolledwindow1.Name = "scrolledwindow1";
+		this.scrolledwindow1.HscrollbarPolicy = ((global::Gtk.PolicyType)(2));
+		this.scrolledwindow1.ShadowType = ((global::Gtk.ShadowType)(1));
+		// Container child scrolledwindow1.Gtk.Container+ContainerChild
+		global::Gtk.Viewport w3 = new global::Gtk.Viewport ();
+		w3.ShadowType = ((global::Gtk.ShadowType)(0));
+		// Container child GtkViewport.Gtk.Container+ContainerChild
+		this.FlightControlsBox = new global::Gtk.VBox ();
+		this.FlightControlsBox.Name = "FlightControlsBox";
+		this.FlightControlsBox.Spacing = 6;
+		w3.Add (this.FlightControlsBox);
+		this.scrolledwindow1.Add (w3);
+		this.notebook4.Add (this.scrolledwindow1);
 		// Notebook tab
-		global::Gtk.Label w3 = new global::Gtk.Label ();
-		w3.Visible = true;
-		this.notebook4.Add (w3);
 		this.FlightTab = new global::Gtk.Label ();
 		this.FlightTab.Name = "FlightTab";
 		this.FlightTab.LabelProp = global::Mono.Unix.Catalog.GetString ("Flight Controls");
-		this.notebook4.SetTabLabel (w3, this.FlightTab);
+		this.notebook4.SetTabLabel (this.scrolledwindow1, this.FlightTab);
 		this.FlightTab.ShowAll ();
 		// Notebook tab
-		global::Gtk.Label w4 = new global::Gtk.Label ();
-		w4.Visible = true;
-		this.notebook4.Add (w4);
+		global::Gtk.Label w7 = new global::Gtk.Label ();
+		w7.Visible = true;
+		this.notebook4.Add (w7);
 		this.SRVTab = new global::Gtk.Label ();
 		this.SRVTab.Name = "SRVTab";
 		this.SRVTab.LabelProp = global::Mono.Unix.Catalog.GetString ("SRV Controls");
-		this.notebook4.SetTabLabel (w4, this.SRVTab);
+		this.notebook4.SetTabLabel (w7, this.SRVTab);
 		this.SRVTab.ShowAll ();
 		this.vbox1.Add (this.notebook4);
-		global::Gtk.Box.BoxChild w5 = ((global::Gtk.Box.BoxChild)(this.vbox1 [this.notebook4]));
-		w5.Position = 1;
+		global::Gtk.Box.BoxChild w8 = ((global::Gtk.Box.BoxChild)(this.vbox1 [this.notebook4]));
+		w8.Position = 1;
 		this.Add (this.vbox1);
 		if ((this.Child != null)) {
 			this.Child.ShowAll ();

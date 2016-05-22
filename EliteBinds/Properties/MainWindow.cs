@@ -12,12 +12,13 @@ using System.Reflection;
 public partial class MainWindow: Gtk.Window
 {
 	private EliteBindsFile edditableBinds;
-	private List<InputField> inpFields;
-	private Notebook inputFieldContainer;
+    private List<InputWidget> inpFields;
+   
 
 	public MainWindow () : base (Gtk.WindowType.Toplevel)
 	{
 		Build ();
+
 		//TODO: bind the tabs to inputfield container so they can be filled
 	}
 
@@ -62,13 +63,14 @@ public partial class MainWindow: Gtk.Window
 	private void RebuildBindsView()
 	{
 		if (inpFields != null)
-			foreach (InputField f in inpFields) {
+            foreach (InputWidget f in inpFields) {
 				this.Remove (f);
 			}
-		inpFields = new List<InputField> ();
+        inpFields = new List<InputWidget> ();
 		foreach (var bindKV in edditableBinds.GetAllSettings) 
 		{
-			var field = InputField.GenField (bindKV.Value);
+            var field = InputWidget.GenField (bindKV.Value);
+            FlightControlsBox.Add(field);
 			field.Show();
 		}
 	}
